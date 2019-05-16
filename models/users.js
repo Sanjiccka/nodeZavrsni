@@ -9,15 +9,21 @@
 // }
 
 
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-var userSchema = new Schema ({
-    fn: {type:String, required: true},
-    ln: {type:String, required: true},
-    email: { type:String, required:true},
-    bd: {type:Date, required:true},
-    tel: {type:Number, required:true},
-    country: {type:String, required:true},
-    pass: { type:String, required:true}
-})
+var usersSchema = new Schema ({
+    fn: {type: String},
+    ln: {type: String},
+    email: { type: String},
+    bd: {type: Number},
+    tel: {type: Number},
+    country: {type: String},
+    pass:{type:String}
+});
+
+
+var User = mongoose.model("User", usersSchema);
+
+module.exports = User;
